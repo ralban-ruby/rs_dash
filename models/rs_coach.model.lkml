@@ -12,7 +12,13 @@ explore: noacd_call {}
 explore: ontime {}
 explore: primarylink {}
 explore: talktime_call {}
-explore: topbar {}
+explore: topbar {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${topbar.employeeid} = ${primarylink.employeeid} ;;
+  }
+}
 explore: totalcalls {}
 explore: totalseconds {}
 
