@@ -18,6 +18,11 @@ explore: topbar {
     type: left_outer
     sql_on: ${topbar.employeeid} = ${primarylink.employeeid} ;;
   }
+  join:  totalcalls {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${topbar.employeeid} = ${totalcalls.employeeid} ;;
+  }
 }
 explore: totalcalls {}
 explore: totalseconds {}
