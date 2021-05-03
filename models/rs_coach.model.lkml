@@ -39,9 +39,9 @@ explore: topbar {
     sql_on: ${topbar.employeeid} = ${acw_call.employeeid} ;;
   }
   join:  noacd_call {
-    relationship: one_to_one
+    relationship: one_to_many
     type: left_outer
-    sql_on: ${topbar.employeeid} = ${noacd_call.employeeid} ;;
+    sql_on: ${topbar.employeeid} = ${noacd_call.employeeid};;
   }
 }
 explore: totalcalls {}
