@@ -6,6 +6,10 @@ view: noacd_call {
     type: number
     sql: ${TABLE}."CALLS" ;;
   }
+  dimension: employeeid {
+    type: number
+    sql: ${TABLE}."EMPLOYEEID" ;;
+  }
 
   dimension_group: date {
     type: time
