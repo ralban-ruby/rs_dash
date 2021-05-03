@@ -12,6 +12,11 @@ view: acw_call {
     sql: ${TABLE}."CALLS" ;;
   }
 
+  dimension: employeeid {
+    type: number
+    sql: ${TABLE}."EMPLOYEEID" ;;
+  }
+
   dimension_group: date {
     type: time
     timeframes: [

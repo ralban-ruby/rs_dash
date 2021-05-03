@@ -21,7 +21,17 @@ explore: topbar {
   join:  totalcalls {
     relationship: one_to_one
     type: left_outer
-    sql_on: ${topbar.employeeid} = ${totalcalls.employeeid} ;;
+    sql_on: ${primarylink.employeeid} = ${totalcalls.employeeid} ;;
+  }
+  join:  avail {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${topbar.employeeid} = ${avail.employeeid} ;;
+  }
+  join:  talktime_call {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${topbar.employeeid} = ${talktime_call.employeeID} ;;
   }
 }
 explore: totalcalls {}

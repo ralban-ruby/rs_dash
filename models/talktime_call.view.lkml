@@ -22,6 +22,11 @@ view: talktime_call {
     sql: ${TABLE}."DATE" ;;
   }
 
+  dimension: employeeID {
+    type: number
+    sql: ${TABLE}."EMPLOYEEID" ;;
+  }
+
   dimension: receptionistdescription {
     type: string
     sql: ${TABLE}."RECEPTIONISTDESCRIPTION" ;;
