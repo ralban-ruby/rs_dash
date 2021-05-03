@@ -40,8 +40,8 @@ explore: topbar {
   }
   join:  noacd_call {
     relationship: one_to_many
-    type: left_outer
-    sql_on: ${topbar.employeeid} = ${noacd_call.employeeid};;
+    type: full_outer
+    sql_on: ${topbar.employeeid} = ${noacd_call.employeeid} and ${topbar.master_date_date} = ${noacd_call.date_date};;
   }
 }
 explore: totalcalls {}
