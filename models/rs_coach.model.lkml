@@ -33,6 +33,11 @@ explore: topbar {
     type: left_outer
     sql_on: ${topbar.employeeid} = ${talktime_call.employeeID} ;;
   }
+  join:  acw_call {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${topbar.employeeid} = ${acw_call.employeeid} ;;
+  }
 }
 explore: totalcalls {}
 explore: totalseconds {}
