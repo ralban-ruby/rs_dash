@@ -28,6 +28,11 @@ view: longoffers {
     sql: ${TABLE}."LONGOFFERS" ;;
   }
 
+  dimension: total_calls {
+    type: number
+    sql: ${TABLE}."TOTAL_CALLS" ;;
+  }
+
   dimension: name {
     type: string
     sql: ${TABLE}."NAME" ;;
