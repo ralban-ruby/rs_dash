@@ -39,7 +39,13 @@ explore: noacd_call {
     sql_on: ${noacd_call.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: ontime {}
+explore: ontime {
+  join:  primarylink {
+    relationship: one_to_one
+    type:  left_outer
+    sql_on: ${ontime.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: primarylink {}
 explore: talktime_call {}
 explore: topbar {
