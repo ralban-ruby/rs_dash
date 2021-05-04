@@ -12,7 +12,13 @@ explore: brb {
   }
 }
 explore: connections {}
-explore: errors {}
+explore: errors {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${errors.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: longoffers {}
 explore: noacd_call {
   join:  primarylink {
