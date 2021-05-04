@@ -4,11 +4,23 @@ include: "*.view"
 
 explore: acw_call {}
 explore: avail {}
-explore: brb {}
+explore: brb {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${brb.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: connections {}
 explore: errors {}
 explore: longoffers {}
-explore: noacd_call {}
+explore: noacd_call {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${noacd_call.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: ontime {}
 explore: primarylink {}
 explore: talktime_call {}
@@ -37,11 +49,6 @@ explore: topbar {
     relationship: one_to_one
     type: left_outer
     sql_on: ${topbar.employeeid} = ${acw_call.employeeid} ;;
-  }
-  join:  noacd_call {
-    relationship: one_to_one
-    type: left_outer
-    sql_on: ${topbar.employeeid} = ${noacd_call.employeeid} and ${topbar.master_date_raw} = ${noacd_call.date_raw};;
   }
 }
 explore: totalcalls {}

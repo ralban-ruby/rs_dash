@@ -70,7 +70,7 @@ view: topbar {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}."Master_Date" ;;
+    sql: ${TABLE}."MASTER_DATE" ;;
   }
 
   dimension: scorecards {
