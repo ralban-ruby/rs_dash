@@ -25,7 +25,7 @@ view: longoffers {
 
   dimension: longoffers {
     type: number
-    sql: ${TABLE}."LONGOFFERS" ;;
+    sql: ${TABLE}."LONG_OFFERS" ;;
   }
 
   dimension: total_calls {

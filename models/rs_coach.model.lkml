@@ -11,7 +11,13 @@ explore: brb {
     sql_on: ${brb.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: connections {}
+explore: connections {
+  join:  primarylink {
+    relationship: one_to_one
+    type: full_outer
+    sql_on: ${connections.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: errors {
   join:  primarylink {
     relationship: one_to_one
