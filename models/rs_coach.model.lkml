@@ -15,11 +15,17 @@ explore: connections {}
 explore: errors {
   join:  primarylink {
     relationship: one_to_one
-    type: left_outer
+    type: full_outer
     sql_on: ${errors.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: longoffers {}
+explore: longoffers {
+  join:  primarylink {
+    relationship: one_to_one
+    type: full_outer
+    sql_on: ${longoffers.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: noacd_call {
   join:  primarylink {
     relationship: one_to_one
