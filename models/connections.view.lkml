@@ -28,6 +28,11 @@ view: connections {
     sql: ${TABLE}."RECEPTIONISTDESCRIPTION" ;;
   }
 
+  dimension: type {
+    type: string
+    sql: ${TABLE}."TYPE" ;;
+  }
+
   dimension: total {
     type: number
     sql: ${TABLE}."TOTAL" ;;

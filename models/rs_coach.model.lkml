@@ -14,7 +14,7 @@ explore: brb {
 explore: connections {
   join:  primarylink {
     relationship: one_to_one
-    type: full_outer
+    type:  left_outer
     sql_on: ${connections.employeeid} = ${primarylink.employeeid};;
   }
 }
