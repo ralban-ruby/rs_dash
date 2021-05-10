@@ -2,7 +2,13 @@ connection: "elt_connector"
 
 include: "*.view"
 
-explore: acw_call {}
+explore: acw_call {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${acw_call.employeeid} = ${primarylink.employeeid};;
+  }
+}
 explore: avail {
   join:  primarylink {
     relationship: one_to_one
@@ -27,7 +33,7 @@ explore: connections {
 explore: errors {
   join:  primarylink {
     relationship: one_to_one
-    type: full_outer
+    type: left_outer
     sql_on: ${errors.employeeid} = ${primarylink.employeeid};;
   }
 }
@@ -53,30 +59,27 @@ explore: ontime {
   }
 }
 explore: primarylink {}
-explore: talktime_call {}
+explore: talktime_call {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${talktime_call.employeeID} = ${primarylink.employeeid} ;;
+  }
+}
 explore: topbar {
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
     sql_on: ${topbar.employeeid} = ${primarylink.employeeid} ;;
   }
-  join:  totalcalls {
+}
+explore: totalcalls {
+  join:  primarylink {
     relationship: one_to_one
     type: left_outer
-    sql_on: ${primarylink.employeeid} = ${totalcalls.employeeid} ;;
-  }
-  join:  talktime_call {
-    relationship: one_to_one
-    type: left_outer
-    sql_on: ${topbar.employeeid} = ${talktime_call.employeeID} ;;
-  }
-  join:  acw_call {
-    relationship: one_to_one
-    type: left_outer
-    sql_on: ${topbar.employeeid} = ${acw_call.employeeid} ;;
+    sql_on: ${totalcalls.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: totalcalls {}
 explore: totalseconds {}
 
 datagroup: rs_coach_default_datagroup {

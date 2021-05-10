@@ -58,21 +58,6 @@ view: topbar {
     sql: ${TABLE}."SCORECARD_DATE" ;;
   }
 
-  dimension_group: master_date {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}."MASTER_DATE" ;;
-  }
-
   dimension: scorecards {
     type: number
     sql: ${TABLE}."SCORECARDS" ;;

@@ -43,6 +43,11 @@ view: errors {
     sql: ${TABLE}."EMPLOYEEID" ;;
   }
 
+  dimension: caseid {
+    type: number
+    sql: ${TABLE}."ID" ;;
+  }
+
   dimension: error_notes_c {
     type: string
     sql: ${TABLE}."ERROR_NOTES_C" ;;
