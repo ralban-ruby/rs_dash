@@ -39,6 +39,11 @@ view: scores {
     sql: ${TABLE}."SCORE" ;;
   }
 
+  dimension: count_calls {
+    type: number
+    sql: ${TABLE}."COUNT" ;;
+  }
+
   dimension: total {
     type: number
     sql: ${TABLE}."TOTAL" ;;
