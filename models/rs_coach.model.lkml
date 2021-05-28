@@ -80,6 +80,14 @@ explore: totalcalls {
     sql_on: ${totalcalls.employeeid} = ${primarylink.employeeid};;
   }
 }
+
+explore: scores {
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${scores.receptionistempcode} = ${primarylink.employee_code};;
+  }
+}
 explore: totalseconds {}
 
 datagroup: rs_coach_default_datagroup {
