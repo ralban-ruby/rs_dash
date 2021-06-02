@@ -93,7 +93,7 @@ explore: totalcalls {
 }
 
 explore: scores {
-  hidden: yes
+  hidden: no
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
