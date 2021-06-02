@@ -3,6 +3,7 @@ connection: "elt_connector"
 include: "*.view"
 
 explore: acw_call {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -10,6 +11,7 @@ explore: acw_call {
   }
 }
 explore: avail {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -17,6 +19,7 @@ explore: avail {
   }
 }
 explore: brb {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -24,6 +27,7 @@ explore: brb {
   }
 }
 explore: connections {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type:  left_outer
@@ -31,6 +35,7 @@ explore: connections {
   }
 }
 explore: errors {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -38,6 +43,7 @@ explore: errors {
   }
 }
 explore: longoffers {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: full_outer
@@ -45,6 +51,7 @@ explore: longoffers {
   }
 }
 explore: noacd_call {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -52,14 +59,16 @@ explore: noacd_call {
   }
 }
 explore: ontime {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type:  left_outer
     sql_on: ${ontime.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: primarylink {}
+explore: primarylink { hidden: yes}
 explore: talktime_call {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -67,6 +76,7 @@ explore: talktime_call {
   }
 }
 explore: topbar {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -74,6 +84,7 @@ explore: topbar {
   }
 }
 explore: totalcalls {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -82,6 +93,7 @@ explore: totalcalls {
 }
 
 explore: scores {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -90,13 +102,14 @@ explore: scores {
 }
 
 explore: noacd_unavail_call {
+  hidden: yes
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
     sql_on: ${noacd_unavail_call.employeeid} = ${primarylink.employee_code};;
   }
 }
-explore: totalseconds {}
+explore: totalseconds {hidden: yes}
 
 datagroup: rs_coach_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
