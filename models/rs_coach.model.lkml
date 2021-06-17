@@ -92,16 +92,17 @@ explore: totalcalls {
   }
 }
 
-explore: scores {
+explore: scores_rollup {
   hidden: no
   access_filter: {field:primarylink.employeeid
-                  user_attribute:employee_id}
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
-    sql_on: ${scores.receptionistempcode} = ${primarylink.employee_code};;
+    sql_on: ${scores_rollup.receptionistempcode} = ${primarylink.employee_code};;
   }
 }
+
 
 explore: noacd_unavail_call {
   hidden: yes
