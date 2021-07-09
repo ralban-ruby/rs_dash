@@ -1,5 +1,5 @@
-view: pc_quality_scorecard_factv2 {
-  sql_table_name: "PEARL_EDW_PC"."PC_QUALITY_SCORECARD_FACTV2"
+view: scorecards {
+  sql_table_name: "RS"."SCORECARDS"
     ;;
   drill_fields: [id]
 
@@ -26,16 +26,6 @@ view: pc_quality_scorecard_factv2 {
       year
     ]
     sql: CAST(${TABLE}."_FIVETRAN_SYNCED" AS TIMESTAMP_NTZ) ;;
-  }
-
-  dimension: chatspecialistempcode {
-    type: number
-    sql: ${TABLE}."CHATSPECIALISTEMPCODE" ;;
-  }
-
-  dimension: chatspecialistname {
-    type: string
-    sql: ${TABLE}."CHATSPECIALISTNAME" ;;
   }
 
   dimension: comment {
@@ -98,6 +88,16 @@ view: pc_quality_scorecard_factv2 {
     sql: ${TABLE}."Q9" ;;
   }
 
+  dimension: receptionistempcode {
+    type: number
+    sql: ${TABLE}."RECEPTIONISTEMPCODE" ;;
+  }
+
+  dimension: receptionistname {
+    type: string
+    sql: ${TABLE}."RECEPTIONISTNAME" ;;
+  }
+
   dimension: score {
     type: number
     sql: ${TABLE}."SCORE" ;;
@@ -124,6 +124,6 @@ view: pc_quality_scorecard_factv2 {
 
   measure: count {
     type: count
-    drill_fields: [id, chatspecialistname]
+    drill_fields: [id, receptionistname]
   }
 }
