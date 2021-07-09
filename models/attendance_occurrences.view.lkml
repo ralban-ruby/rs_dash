@@ -5,6 +5,7 @@ view: attendance_occurrences {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}."ID" ;;
   }
@@ -102,10 +103,6 @@ view: attendance_occurrences {
     sql: ${TABLE}."EMPID" ;;
   }
 
-  dimension: hours {
-    type: number
-    sql: ${TABLE}."HOURS" ;;
-  }
 
   dimension: memo {
     type: string
@@ -118,6 +115,7 @@ view: attendance_occurrences {
   }
 
   dimension: newoccurrence {
+    hidden: yes
     type: number
     sql: ${TABLE}."NEWOCCURRENCE" ;;
   }
@@ -163,7 +161,20 @@ view: attendance_occurrences {
   }
 
   measure: count {
-    type: count
-    drill_fields: [id, name]
+    type: count_distinct
+    sql: ${TABLE}."ID" ;;
   }
+
+
+  measure: count_occurrences {
+    type: sum
+    sql: ${TABLE}."NEWOCCURRENCE" ;;
+  }
+
+  measure: sum_hours {
+    type: sum
+    value_format_name: decimal_2
+    sql: ${TABLE}."HOURS" ;;
+  }
+
 }
