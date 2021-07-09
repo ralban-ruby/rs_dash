@@ -115,7 +115,7 @@ explore: noacd_unavail_call {
 explore: totalseconds {hidden: no}
 
 explore: rs_quality_scorecard_fact{
-  label: "RS Service Quality Scorecards"
+  label: "RS Service Quality Scorecards_RA"
   view_label: "Receptionist Scorecards"
   join: employee_lookup_all {
     view_label: "Employee Info"
