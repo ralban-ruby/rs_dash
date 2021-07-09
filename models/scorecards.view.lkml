@@ -1,7 +1,7 @@
 view: scorecards {
   sql_table_name: "RS"."SCORECARDS"
     ;;
-  drill_fields: [id]
+  drill_fields: [id,submittime_date,receptionistname,evaluatoruser,score,scoresummary]
 
   dimension: id {
     primary_key: yes
@@ -11,21 +11,8 @@ view: scorecards {
 
   dimension: _fivetran_deleted {
     type: yesno
+    hidden: yes
     sql: ${TABLE}."_FIVETRAN_DELETED" ;;
-  }
-
-  dimension_group: _fivetran_synced {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: CAST(${TABLE}."_FIVETRAN_SYNCED" AS TIMESTAMP_NTZ) ;;
   }
 
   dimension: comment {
@@ -34,6 +21,7 @@ view: scorecards {
   }
 
   dimension: evaluatoruser {
+    label: "Evaluator UserID"
     type: string
     sql: ${TABLE}."EVALUATORUSER" ;;
   }
@@ -89,19 +77,21 @@ view: scorecards {
   }
 
   dimension: receptionistempcode {
+    label: "Employee Code"
     type: number
     sql: ${TABLE}."RECEPTIONISTEMPCODE" ;;
   }
 
   dimension: receptionistname {
+    label: "Name"
     type: string
     sql: ${TABLE}."RECEPTIONISTNAME" ;;
   }
 
-  dimension: score {
-    type: number
-    sql: ${TABLE}."SCORE" ;;
-  }
+  # dimension: score {
+  #   type: number
+  #   sql: ${TABLE}."SCORE" ;;
+  # }
 
   dimension: scoresummary {
     type: string
@@ -109,6 +99,7 @@ view: scorecards {
   }
 
   dimension_group: submittime {
+    label: "Created"
     type: time
     timeframes: [
       raw,
@@ -122,8 +113,66 @@ view: scorecards {
     sql: ${TABLE}."SUBMITTIME" ;;
   }
 
+  dimension_group: submitdate {
+    label: "Created_Date"
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}."SUBMITTIME" ;;
+    html: {{ rendered_value | date: "%b '%y" }} ;;
+  }
+
+  dimension: count_scored {
+    hidden: yes
+    type: number
+    sql: (CASE WHEN ${TABLE}."Q1" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q2" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q3" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q4" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q5" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q6" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q7" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q8" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q9" IS NULL THEN 0 ELSE 1 END) +
+        (CASE WHEN ${TABLE}."Q10" IS NULL THEN 0 ELSE 1 END) ;;
+  }
+
+  dimension: sum_scored {
+    hidden: yes
+    type: number
+    sql: IFNULL(${TABLE}."Q1",0)+IFNULL(${TABLE}."Q2",0)+
+         IFNULL(${TABLE}."Q3",0)+IFNULL(${TABLE}."Q4",0)+IFNULL(${TABLE}."Q5",0)+
+         IFNULL(${TABLE}."Q6",0)+IFNULL(${TABLE}."Q7",0)+
+         IFNULL(${TABLE}."Q8",0)+IFNULL(${TABLE}."Q9",0)+IFNULL(${TABLE}."Q10",0) ;;
+  }
+
+  measure: sum_count_scored {
+    hidden: yes
+    type: sum
+    sql: ${count_scored} ;;
+  }
+
+  measure: sum_sum_scored {
+    hidden: yes
+    type: sum
+    sql: ${sum_scored} ;;
+  }
+
+  measure: score {
+    type: number
+    value_format_name: percent_0
+    sql: ${sum_sum_scored}/NULLIF(${sum_count_scored},0) ;;
+  }
+
   measure: count {
-    type: count
-    drill_fields: [id, receptionistname]
+    type: count_distinct
+    sql: ${id} ;;
   }
 }
