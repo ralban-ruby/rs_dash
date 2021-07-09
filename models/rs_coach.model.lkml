@@ -122,6 +122,31 @@ explore: noacd_unavail_call {
     sql_on: ${noacd_unavail_call.employeeid} = ${primarylink.employee_code};;
   }
 }
+
+explore: rs_ic_status_fact {
+  label: "Receptionist Stats"
+  view_label: "IC Statuses"
+  join: rs_recp_call_stats_fact {
+    view_label: "Calls"
+    relationship: many_to_one
+    type: full_outer
+    sql_on: ${rs_ic_status_fact.name} = ${rs_recp_call_stats_fact.name}
+      and ${rs_ic_status_fact.day_of_shift_date} = ${rs_recp_call_stats_fact.day_of_shift_date} ;;
+  }
+  join: employee_lookup_all {
+    view_label: "Current Employee Info"
+    relationship: many_to_one
+    type: full_outer
+    sql_on:  ${rs_ic_status_fact.name} = ${employee_lookup_all.name};;
+  }
+  join: aspect_superstate_hours {
+    view_label: "Aspect Superstate Hours"
+    relationship: many_to_many
+    type: full_outer
+    sql_on: ${rs_ic_status_fact.name} = ${aspect_superstate_hours.name}
+      and ${rs_ic_status_fact.day_of_shift_date} = ${aspect_superstate_hours.nominal_date} ;;
+  }
+}
 explore: totalseconds {hidden: no}
 
 datagroup: rs_coach_default_datagroup {
