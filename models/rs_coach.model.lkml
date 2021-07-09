@@ -147,6 +147,16 @@ explore: rs_ic_status_fact {
       and ${rs_ic_status_fact.day_of_shift_date} = ${aspect_superstate_hours.nominal_date} ;;
   }
 }
+
+explore: attendance_occurrences {
+  label: "Attendance Occurrences"
+  join: employee_lookup_all {
+    view_label: "Employee Info"
+    relationship: many_to_one
+    type: full_outer
+    sql_on:  ${attendance_occurrences.empid} = ${employee_lookup_all.employeeid};;
+  }
+}
 explore: totalseconds {hidden: no}
 
 datagroup: rs_coach_default_datagroup {
