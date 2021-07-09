@@ -114,6 +114,29 @@ explore: noacd_unavail_call {
 }
 explore: totalseconds {hidden: no}
 
+explore: rs_quality_scorecard_fact{
+  label: "RS Service Quality Scorecards"
+  view_label: "Receptionist Scorecards"
+  join: employee_lookup_all {
+    view_label: "Employee Info"
+    relationship: many_to_one
+    type: full_outer
+    sql_on:  ${rs_quality_scorecard_fact.receptionistempcode} = ${employee_lookup_all.employee_code};;
+  }
+  join: pc_quality_scorecard_factv2 {
+    view_label: "Chat Scorecards"
+    relationship: one_to_many
+    type: full_outer
+    sql_on:  ${pc_quality_scorecard_factv2.chatspecialistempcode} = ${employee_lookup_all.employeeid};;
+  }
+  join: aspect_superstatehours_fact {
+    view_label: "Aspect Superstate Hours"
+    relationship: many_to_many
+    type: full_outer
+    sql_on: TO_CHAR(${rs_quality_scorecard_fact.receptionistempcode}) = TO_CHAR(${aspect_superstatehours_fact.employeecode})
+      and ${rs_quality_scorecard_fact.submitdate_date} = ${aspect_superstatehours_fact.nominal_date} ;;
+  }
+}
 datagroup: rs_coach_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
