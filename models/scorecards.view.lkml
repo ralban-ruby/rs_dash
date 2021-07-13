@@ -88,10 +88,10 @@ view: scorecards {
     sql: ${TABLE}."RECEPTIONISTNAME" ;;
   }
 
-  # dimension: score {
-  #   type: number
-  #   sql: ${TABLE}."SCORE" ;;
-  # }
+  dimension: score_actual {
+    type: number
+    sql: ${TABLE}."SCORE" ;;
+  }
 
   dimension: scoresummary {
     type: string
