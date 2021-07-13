@@ -168,7 +168,7 @@ view: scorecards {
   measure: score {
     type: number
     value_format_name: percent_0
-    sql: ${score_actual}/1
+    sql: ${score_actual}/1;;
   }
 
   measure: count {
