@@ -18,6 +18,15 @@ explore: avail {
     sql_on: ${avail.employeeid} = ${primarylink.employeeid};;
   }
 }
+
+explore: seemore_rollup {
+    hidden: no
+    join: primarylink {
+      relationship: many_to_one
+      type: full_outer
+      sql_on: ${seemore_rollup.employeeid} = ${primarylink.employeeid} ;;
+    }
+}
 explore: brb {
   hidden: no
   join:  primarylink {
