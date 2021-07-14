@@ -22,6 +22,11 @@ view: seemore_rollup {
     sql: ${TABLE}."ANA" ;;
   }
 
+  dimension: meeting_minutes {
+    type: number
+    sql: ${TABLE}."MEETING_MINUTES" ;;
+  }
+
   dimension: avail {
     type: number
     sql: ${TABLE}."AVAIL" ;;
