@@ -81,7 +81,7 @@ explore: talktime_call {
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
-    sql_on: ${talktime_call.employeeid} = ${primarylink.employeeid} ;;
+    sql_on: ${talktime_call.employeeID} = ${primarylink.employeeid} ;;
   }
 }
 explore: topbar {

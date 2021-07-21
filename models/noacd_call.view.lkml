@@ -6,6 +6,10 @@ view: noacd_call {
     type: number
     sql: ${TABLE}."CALLS" ;;
   }
+  dimension: employeeid {
+    type: number
+    sql: ${TABLE}."EMPLOYEEID" ;;
+  }
 
   dimension_group: date {
     type: time
@@ -20,12 +24,6 @@ view: noacd_call {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."DATE" ;;
-  }
-
-  dimension: employeeid {
-    type: number
-    value_format_name: id
-    sql: ${TABLE}."EMPLOYEEID" ;;
   }
 
   dimension: noacd_second {

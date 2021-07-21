@@ -1,160 +1,155 @@
-view: seemore_rollup {
-  sql_table_name: "RS"."SEEMORE_ROLLUP"
-    ;;
+  view: seemore_rollup {
+    sql_table_name: "RS"."SEEMORE_ROLLUP"
+      ;;
 
-  dimension: absence_hours {
-    type: number
-    sql: ${TABLE}."ABSENCE_HOURS" ;;
-  }
+    dimension: absence_hours {
+      type: number
+      sql: ${TABLE}."ABSENCE_HOURS" ;;
+    }
 
-  dimension: acw_minutes {
-    type: number
-    sql: ${TABLE}."ACW_MINUTES" ;;
-  }
+    dimension: acw_minutes {
+      type: number
+      sql: ${TABLE}."ACW_MINUTES" ;;
+    }
 
-  dimension: acw_seconds {
-    type: number
-    sql: ${TABLE}."ACW_SECONDS" ;;
-  }
+    dimension: acw_seconds {
+      type: number
+      sql: ${TABLE}."ACW_SECONDS" ;;
+    }
 
-  dimension: ana {
-    type: number
-    sql: ${TABLE}."ANA" ;;
-  }
+    dimension: ana {
+      type: number
+      sql: ${TABLE}."ANA" ;;
+    }
 
-  dimension: avail {
-    type: number
-    sql: ${TABLE}."AVAIL" ;;
-  }
+    dimension: meeting_minutes {
+      type: number
+      sql: ${TABLE}."MEETING_MINUTES" ;;
+    }
 
-  dimension: brb_minutes {
-    type: number
-    sql: ${TABLE}."BRB_MINUTES" ;;
-  }
+    dimension: avail {
+      type: number
+      sql: ${TABLE}."AVAIL" ;;
+    }
 
-  dimension: calls {
-    type: number
-    sql: ${TABLE}."CALLS" ;;
-  }
+    dimension: brb_minutes {
+      type: number
+      sql: ${TABLE}."BRB_MINUTES" ;;
+    }
 
-  dimension: calls_per_floor_hour {
-    type: number
-    sql: ${TABLE}."CALLS_PER_FLOOR_HOUR" ;;
-  }
+    dimension: calls {
+      type: number
+      sql: ${TABLE}."CALLS" ;;
+    }
 
-  dimension_group: date {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}."DATE" ;;
-  }
+    dimension: calls_per_floor_hour {
+      type: number
+      sql: ${TABLE}."CALLS_PER_FLOOR_HOUR" ;;
+    }
 
-  dimension: employeeid {
-    type: number
-    value_format_name: id
-    sql: ${TABLE}."EMPLOYEEID" ;;
-  }
+    dimension_group: date {
+      type: time
+      timeframes: [
+        raw,
+        date,
+        week,
+        month,
+        quarter,
+        year
+      ]
+      convert_tz: no
+      datatype: date
+      sql: ${TABLE}."DATE" ;;
+    }
 
-  dimension: floor_time_hours {
-    type: number
-    sql: ${TABLE}."FLOOR_TIME_HOURS" ;;
-  }
+    dimension: employeeid {
+      type: number
+      value_format_name: id
+      sql: ${TABLE}."EMPLOYEEID" ;;
+    }
 
-  dimension: handletime_seconds {
-    type: number
-    sql: ${TABLE}."HANDLETIME_SECONDS" ;;
-  }
+    dimension: floor_time_hours {
+      type: number
+      sql: ${TABLE}."FLOOR_TIME_HOURS" ;;
+    }
 
-  dimension: hourstrimmed {
-    type: number
-    sql: ${TABLE}."HOURSTRIMMED" ;;
-  }
+    dimension: handletime_seconds {
+      type: number
+      sql: ${TABLE}."HANDLETIME_SECONDS" ;;
+    }
 
-  dimension: hoursworked {
-    type: number
-    sql: ${TABLE}."HOURSWORKED" ;;
-  }
+    dimension: hourstrimmed {
+      type: number
+      sql: ${TABLE}."HOURSTRIMMED" ;;
+    }
 
-  dimension: longoffers {
-    type: number
-    sql: ${TABLE}."LONGOFFERS" ;;
-  }
+    dimension: hoursworked {
+      type: number
+      sql: ${TABLE}."HOURSWORKED" ;;
+    }
 
-  dimension: meeting_minutes {
-    type: number
-    sql: ${TABLE}."MEETING_MINUTES" ;;
-  }
+    dimension: longoffers {
+      type: number
+      sql: ${TABLE}."LONGOFFERS" ;;
+    }
 
-  dimension: name {
-    type: string
-    sql: ${TABLE}."NAME" ;;
-  }
+    dimension: name {
+      type: string
+      sql: ${TABLE}."NAME" ;;
+    }
 
-  dimension: noacd_minutes {
-    type: number
-    sql: ${TABLE}."NOACD_MINUTES" ;;
-  }
+    dimension: noacd_minutes {
+      type: number
+      sql: ${TABLE}."NOACD_MINUTES" ;;
+    }
 
-  dimension: noacd_seconds {
-    type: number
-    sql: ${TABLE}."NOACD_SECONDS" ;;
-  }
+    dimension: noacd_seconds {
+      type: number
+      sql: ${TABLE}."NOACD_SECONDS" ;;
+    }
 
-  dimension: openhours {
-    type: number
-    sql: ${TABLE}."OPENHOURS" ;;
-  }
+    dimension: openhours {
+      type: number
+      sql: ${TABLE}."OPENHOURS" ;;
+    }
 
-  dimension: plannedleave {
-    type: number
-    sql: ${TABLE}."PLANNEDLEAVE" ;;
-  }
+    dimension: plannedleave {
+      type: number
+      sql: ${TABLE}."PLANNEDLEAVE" ;;
+    }
 
-  dimension: talktime_minutes {
-    type: number
-    sql: ${TABLE}."TALKTIME_MINUTES" ;;
-  }
+    dimension: talktime_minutes {
+      type: number
+      sql: ${TABLE}."TALKTIME_MINUTES" ;;
+    }
 
-  dimension: talktime_seconds {
-    type: number
-    sql: ${TABLE}."TALKTIME_SECONDS" ;;
-  }
+    dimension: talktime_seconds {
+      type: number
+      sql: ${TABLE}."TALKTIME_SECONDS" ;;
+    }
 
-  dimension: techissues_minutes {
-    type: number
-    sql: ${TABLE}."TECHISSUES_MINUTES" ;;
-  }
+    dimension: techissues_minutes {
+      type: number
+      sql: ${TABLE}."TECHISSUES_MINUTES" ;;
+    }
 
-  dimension: tt_minutes {
-    type: number
-    sql: ${TABLE}."TT_MINUTES" ;;
-  }
+    dimension: unavail_minutes {
+      type: number
+      sql: ${TABLE}."UNAVAIL_MINUTES" ;;
+    }
 
-  dimension: unavail_minutes {
-    type: number
-    sql: ${TABLE}."UNAVAIL_MINUTES" ;;
-  }
+    dimension: uniquekey {
+      type: string
+      sql: ${TABLE}."UNIQUEKEY" ;;
+    }
 
-  dimension: uniquekey {
-    type: string
-    sql: ${TABLE}."UNIQUEKEY" ;;
-  }
+    dimension: weekday {
+      type: string
+      sql: ${TABLE}."WEEKDAY" ;;
+    }
 
-  dimension: weekday {
-    type: string
-    sql: ${TABLE}."WEEKDAY" ;;
+    measure: count {
+      type: count
+      drill_fields: [name]
+    }
   }
-
-  measure: count {
-    type: count
-    drill_fields: [name]
-  }
-}

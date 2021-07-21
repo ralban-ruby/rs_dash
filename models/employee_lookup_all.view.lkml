@@ -131,6 +131,6 @@ view: employee_lookup_all {
 
   measure: count {
     type: count
-    drill_fields: [name, legalname, mailnickname, samaccountname]
+    drill_fields: [samaccountname, mailnickname, legalname, name]
   }
 }

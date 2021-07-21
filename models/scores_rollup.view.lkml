@@ -30,7 +30,7 @@ view: scores_rollup {
   }
 
   dimension: q_id {
-    type: string
+    type: number
     sql: ${TABLE}."Q_ID" ;;
   }
 
@@ -51,12 +51,11 @@ view: scores_rollup {
 
   dimension: scorecard_id {
     type: number
-    # hidden: yes
     sql: ${TABLE}."SCORECARD_ID" ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [id, receptionistname, scorecards.id, scorecards.receptionistname]
+    drill_fields: [id, receptionistname]
   }
 }
