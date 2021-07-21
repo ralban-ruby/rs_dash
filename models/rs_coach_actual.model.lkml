@@ -86,6 +86,8 @@ explore: talktime_call {
 }
 explore: topbar {
   hidden: no
+    access_filter: {field:primarylink.team
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
