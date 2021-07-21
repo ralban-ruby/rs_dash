@@ -102,8 +102,6 @@ explore: totalcalls {
 }
 
 explore: scores_rollup {
- sql_always_where: {%if _user_attributes['title'] contains 'coach'%} ${primarylink.team} = {{_user_attributes['team']}} {% else %} ${primarylink.employee_code} = {{_user_attributes['employee_id']}}
-{% endif %};;
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
