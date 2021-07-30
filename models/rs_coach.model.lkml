@@ -163,6 +163,22 @@ explore: attendance_occurrences {
     sql_on:  ${attendance_occurrences.empid} = ${employee_lookup_all.employeeid};;
   }
 }
+
+explore: recognitions_given {
+  join: primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${recognitions_given.creator_emp_id} = ${primarylink.employee_code};;
+  }
+}
+
+explore: recognitions_received {
+  join: primarylink {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${recognitions_received.recipient_emp_id} = ${primarylink.employee_code};;
+  }
+}
 explore: totalseconds {hidden: no}
 
 datagroup: rs_coach_default_datagroup {
