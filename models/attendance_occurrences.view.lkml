@@ -169,12 +169,12 @@ view: attendance_occurrences {
   measure: count_occurrences {
     type: sum
     sql: ${TABLE}."NEWOCCURRENCE" ;;
-    html:
-    {% if value >= 5 %}
-    <p style="color: red; font-size: 100%">{{ rendered_value }}</p>
-    {% else %}
-    <p style="color: black; font-size:100%">{{ rendered_value }}</p>
-    {% endif %};;
+    # html:
+    # {% if value >= 5 %}
+    # <p style="color: red; font-size: 100%">{{ rendered_value }}</p>
+    # {% else %}
+    # <p style="color: black; font-size:100%">{{ rendered_value }}</p>
+    # {% endif %};;
   }
 
   measure: sum_hours {
