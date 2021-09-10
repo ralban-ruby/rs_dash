@@ -167,7 +167,7 @@ view: attendance_occurrences {
 
 
   measure: count_occurrences {
-    type: sum
+    type: sum_distinct
     sql: ${TABLE}."NEWOCCURRENCE" ;;
     # html:
     # {% if value >= 5 %}
@@ -178,7 +178,7 @@ view: attendance_occurrences {
   }
 
   measure: sum_hours {
-    type: sum
+    type: sum_distinct
     value_format_name: decimal_2
     sql: ${TABLE}."HOURS" ;;
   }
