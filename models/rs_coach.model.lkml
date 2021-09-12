@@ -3,9 +3,9 @@ connection: "elt_connector"
 include: "*.view"
 
 explore: acw_call {
-  hidden: no
   access_filter: {field:primarylink.employeeid
     user_attribute:employee_id}
+  hidden: no
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -13,9 +13,9 @@ explore: acw_call {
   }
 }
 explore: avail {
-  hidden: no
   access_filter: {field:primarylink.employeeid
     user_attribute:employee_id}
+  hidden: no
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
