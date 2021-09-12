@@ -4,6 +4,8 @@ include: "*.view"
 
 explore: acw_call {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -12,6 +14,8 @@ explore: acw_call {
 }
 explore: avail {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -21,6 +25,8 @@ explore: avail {
 
 explore: seemore_rollup {
     hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
     join: primarylink {
       relationship: many_to_one
       type: full_outer
@@ -29,6 +35,8 @@ explore: seemore_rollup {
 }
 explore: brb {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -37,6 +45,8 @@ explore: brb {
 }
 explore: connections {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type:  left_outer
@@ -45,6 +55,8 @@ explore: connections {
 }
 explore: errors {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -53,6 +65,8 @@ explore: errors {
 }
 explore: longoffers {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: full_outer
@@ -61,6 +75,8 @@ explore: longoffers {
 }
 explore: noacd_call {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -69,15 +85,20 @@ explore: noacd_call {
 }
 explore: ontime {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type:  left_outer
     sql_on: ${ontime.employeeid} = ${primarylink.employeeid};;
   }
 }
-explore: primarylink { hidden: yes}
+explore: primarylink { hidden: yes   access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}}
 explore: talktime_call {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -86,6 +107,8 @@ explore: talktime_call {
 }
 explore: topbar {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -94,6 +117,8 @@ explore: topbar {
 }
 explore: totalcalls {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -102,6 +127,8 @@ explore: totalcalls {
 }
 
 explore: scores_rollup {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -111,8 +138,8 @@ explore: scores_rollup {
 
 explore: scorecards {
   hidden: no
-  # access_filter: {field:primarylink.employeeid
-  #   user_attribute:employee_id}
+   access_filter: {field:primarylink.employeeid
+     user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -122,6 +149,8 @@ explore: scorecards {
 
 explore: noacd_unavail_call {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
@@ -132,6 +161,8 @@ explore: noacd_unavail_call {
 explore: rs_ic_status_fact {
   label: "Receptionist Stats"
   view_label: "IC Statuses"
+  access_filter: {field:employee_lookup_all.employeeid
+    user_attribute:employee_id}
   join: rs_recp_call_stats_fact {
     view_label: "Calls"
     relationship: many_to_one
@@ -156,6 +187,8 @@ explore: rs_ic_status_fact {
 
 explore: attendance_occurrences {
   label: "Attendance Occurrences"
+  access_filter: {field:employee_lookup_all.employeeid
+    user_attribute:employee_id}
   join: employee_lookup_all {
     view_label: "Employee Info"
     relationship: many_to_one
@@ -165,6 +198,8 @@ explore: attendance_occurrences {
 }
 
 explore: recognitions_given {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join: primarylink {
     relationship: one_to_one
     type: left_outer
@@ -173,6 +208,8 @@ explore: recognitions_given {
 }
 
 explore: recognitions_received {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join: primarylink {
     relationship: many_to_one
     type: left_outer
