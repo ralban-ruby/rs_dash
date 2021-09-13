@@ -23,6 +23,15 @@ explore: avail {
   }
 }
 
+explore: avail_all_view {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${avail_all_view.employeeid} = ${primarylink.employeeid};;
+  }
+}
+
 explore: seemore_rollup {
     hidden: no
   access_filter: {field:primarylink.employeeid
