@@ -12,6 +12,16 @@ explore: acw_call {
     sql_on: ${acw_call.employeeid} = ${primarylink.employeeid};;
   }
 }
+
+explore: acw_call_view_all {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${acw_call_view_all.employeeid} = ${primarylink.employeeid};;
+  }
+}
+
 explore: avail {
   access_filter: {field:primarylink.employeeid
     user_attribute:employee_id}
@@ -52,6 +62,16 @@ explore: brb {
     sql_on: ${brb.employeeid} = ${primarylink.employeeid};;
   }
 }
+
+explore: brb_view_all {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${brb_view_all.employeeid} = ${primarylink.employeeid};;
+  }
+}
+
 explore: connections {
   hidden: no
   access_filter: {field:primarylink.employeeid
@@ -85,8 +105,6 @@ explore: longoffers {
 
 explore: longoffers_all_view {
   hidden: no
-  access_filter: {field:primarylink.employeeid
-    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: full_outer
