@@ -82,6 +82,18 @@ explore: longoffers {
     sql_on: ${longoffers.employeeid} = ${primarylink.employeeid};;
   }
 }
+
+explore: longoffers_all_view {
+  hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
+  join:  primarylink {
+    relationship: one_to_one
+    type: full_outer
+    sql_on: ${longoffers_all_view.employeeid} = ${primarylink.employeeid};;
+  }
+}
+
 explore: noacd_call {
   hidden: no
   access_filter: {field:primarylink.employeeid
