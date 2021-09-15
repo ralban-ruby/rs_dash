@@ -22,6 +22,15 @@ explore: acw_call_view_all {
   }
 }
 
+explore: avail_tda {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${avail_tda.empid} = ${primarylink.employeeid};;
+  }
+}
+
 explore: avail {
   access_filter: {field:primarylink.employeeid
     user_attribute:employee_id}
