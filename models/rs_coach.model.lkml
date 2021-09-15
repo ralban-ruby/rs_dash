@@ -23,6 +23,8 @@ explore: acw_call_view_all {
 }
 
 explore: avail_tda {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   hidden: no
   join:  primarylink {
     relationship: one_to_one
