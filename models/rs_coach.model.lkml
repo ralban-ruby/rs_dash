@@ -32,7 +32,14 @@ explore: avail_tda {
     sql_on: ${avail_tda.empid} = ${primarylink.employeeid};;
   }
 }
-explore: brb_tda {}
+explore: brb_tda {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${brb_tda.employeeid} = ${primarylink.employeeid};;
+  }
+}
 
 explore: activity_inbound_calls {
   join: activity_inbound_call_detail {
