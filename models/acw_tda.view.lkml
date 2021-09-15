@@ -3,6 +3,7 @@ view: acw_tda {
     ;;
 
   dimension: employeeid {
+    primary_key: yes
     type: number
     value_format_name: id
     sql: ${TABLE}."EMPLOYEEID" ;;

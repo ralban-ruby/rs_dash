@@ -33,6 +33,8 @@ explore: avail_tda {
   }
 }
 explore: brb_tda {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   hidden: no
   join:  primarylink {
     relationship: one_to_one
@@ -42,6 +44,8 @@ explore: brb_tda {
 }
 
 explore: activity_inbound_calls {
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join: activity_inbound_call_detail {
     relationship: one_to_many
     type: left_outer
