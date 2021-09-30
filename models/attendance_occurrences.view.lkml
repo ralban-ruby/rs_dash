@@ -95,6 +95,7 @@ view: attendance_occurrences {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."EFFECTIVETHROUGH" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: empid {

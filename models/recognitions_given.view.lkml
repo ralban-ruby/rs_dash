@@ -33,6 +33,7 @@ view: recognitions_given {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."CREATED" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: creator_emp_id {

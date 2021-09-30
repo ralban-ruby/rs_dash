@@ -35,6 +35,7 @@ view: acw_call {
   dimension: receptionistdescription {
     type: string
     sql: ${TABLE}."RECEPTIONISTDESCRIPTION" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: seconds {

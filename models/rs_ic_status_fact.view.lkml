@@ -41,6 +41,7 @@ view: rs_ic_status_fact {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."DATE" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: tenure_day {

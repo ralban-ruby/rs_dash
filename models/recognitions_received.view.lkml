@@ -33,6 +33,7 @@ view: recognitions_received {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."CREATED" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: message {
