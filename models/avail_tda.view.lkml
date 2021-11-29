@@ -10,6 +10,7 @@ view: avail_tda {
   dimension: avail_minutes {
     type: number
     sql: ${TABLE}."AVAIL_MINUTES" ;;
+    suggest_persist_for: "0 minutes"
   }
 
   dimension: calls {
@@ -50,6 +51,7 @@ view: avail_tda {
   dimension: shift_minutes {
     type: number
     sql: ${TABLE}."SHIFT_MINUTES" ;;
+    suggest_persist_for: "0 minutes"
   }
 
   measure: count {
