@@ -22,6 +22,7 @@ view: avail_tda {
     type: number
     value_format_name: id
     sql: ${TABLE}."EMPID" ;;
+    suggest_persist_for: "0 minutes"
   }
 
   dimension_group: max_status {
