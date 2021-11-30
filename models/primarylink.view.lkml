@@ -11,7 +11,6 @@ view: primarylink {
     type: number
     value_format_name: id
     sql: ${TABLE}."EMPLOYEEID" ;;
-    suggest_persist_for: "0 minutes"
   }
 
   dimension: name {
