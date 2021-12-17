@@ -146,10 +146,20 @@ explore: longoffers {
 }
 explore: rs_recap_longoffer_ana_data {
   hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: full_outer
     sql_on: ${rs_recap_longoffer_ana_data.employeeid} = ${primarylink.employeeid};;
+  }
+}
+explore: rs_recap_longoffer_ana_all {
+  hidden: no
+  join:  primarylink {
+    relationship: one_to_one
+    type: full_outer
+    sql_on: ${rs_recap_longoffer_ana_all.employeeid} = ${primarylink.employeeid};;
   }
 }
 explore: longoffers_all_view {
