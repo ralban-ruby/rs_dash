@@ -33,6 +33,20 @@ view: primarylink {
     sql: ${TABLE}."TITLE" ;;
   }
 
+  dimension: Tenure {
+    type : number
+    sql: ${TABLE}."TENURE";;
+  }
+
+  dimension: tenure_tier {
+    group_label: "Tenure"
+    label: "By Tier"
+    style: integer
+    type: tier
+    tiers: [0,60,120]
+    sql: ${Tenure};;
+  }
+
   measure: count {
     type: count
     drill_fields: [name]
