@@ -94,7 +94,7 @@ view: attendance_occurrences {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}."EFFECTIVETHROUGH" ;;
+    sql: ${TABLE}."EFFECTIVETHROUGH_ACTUAL" ;;
     html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
