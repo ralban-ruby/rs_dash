@@ -3,7 +3,6 @@ view: seemore_rollup_new {
     ;;
 
   dimension: absence_hours {
-    label: "absence_hour"
     type: number
     sql: ${TABLE}."ABSENCE_HOURS" ;;
   }
