@@ -94,6 +94,16 @@ explore: seemore_rollup {
       sql_on: ${seemore_rollup.employeeid} = ${primarylink.employeeid} ;;
     }
 }
+explore: seemore_rollup_new {
+  hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
+  join: primarylink {
+    relationship: many_to_one
+    type: full_outer
+    sql_on: ${seemore_rollup_new.employeeid} = ${primarylink.employeeid} ;;
+  }
+}
 explore: brb {
   hidden: no
   access_filter: {field:primarylink.employeeid
@@ -146,8 +156,6 @@ explore: longoffers {
 }
 explore: rs_recap_longoffer_ana_data {
   hidden: no
-  access_filter: {field:primarylink.employeeid
-    user_attribute:employee_id}
   join:  primarylink {
     relationship: one_to_one
     type: full_outer
