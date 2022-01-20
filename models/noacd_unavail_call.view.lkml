@@ -20,7 +20,6 @@ view: noacd_unavail_call {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."DATE" ;;
-    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: employeeid {
@@ -29,9 +28,14 @@ view: noacd_unavail_call {
     sql: ${TABLE}."EMPLOYEEID" ;;
   }
 
-  dimension: noacd_second {
+  dimension: noacd_second_per_call {
     type: number
-    sql: ${TABLE}."NOACD_SECOND" ;;
+    sql: ${TABLE}."NOACD_SECOND_PER_CALL" ;;
+  }
+
+  dimension: noacd_seconds {
+    type: number
+    sql: ${TABLE}."NOACD_SECONDS" ;;
   }
 
   dimension: receptionistdescription {
@@ -39,14 +43,9 @@ view: noacd_unavail_call {
     sql: ${TABLE}."RECEPTIONISTDESCRIPTION" ;;
   }
 
-  dimension: seconds {
+  dimension: unavail_seconds {
     type: number
-    sql: ${TABLE}."SECONDS" ;;
-  }
-
-  dimension: unavail_second {
-    type: number
-    sql: ${TABLE}."UNAVAIL_SECOND" ;;
+    sql: ${TABLE}."UNAVAIL_SECONDS" ;;
   }
 
   measure: count {

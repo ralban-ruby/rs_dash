@@ -262,7 +262,7 @@ explore: noacd_unavail_call {
   join:  primarylink {
     relationship: one_to_one
     type: left_outer
-    sql_on: ${noacd_unavail_call.employeeid} = ${primarylink.employee_code};;
+    sql_on: ${noacd_unavail_call.employeeid} = ${primarylink.employeeid};;
   }
 }
 
