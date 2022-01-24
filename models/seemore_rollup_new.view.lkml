@@ -27,6 +27,12 @@ view: seemore_rollup_new {
     sql: ${TABLE}."BRB_MINUTES" ;;
   }
 
+  dimension: ACW_minutes {
+    type: number
+    sql: ${TABLE}."ACW_MINUTES" ;;
+  }
+
+
   dimension: calls {
     type: number
     sql: ${TABLE}."CALLS" ;;
