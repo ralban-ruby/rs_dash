@@ -104,6 +104,17 @@ explore: seemore_rollup_new {
     sql_on: ${seemore_rollup_new.employeeid} = ${primarylink.employeeid} ;;
   }
 }
+explore: seemore_rollup_new_all {
+  hidden: no
+  access_filter: {field:primarylink.employeeid
+    user_attribute:employee_id}
+  join: primarylink {
+    relationship: many_to_one
+    type: full_outer
+    sql_on: ${seemore_rollup_new_all.employeeid} = ${primarylink.employeeid} ;;
+  }
+}
+
 explore: brb {
   hidden: no
   access_filter: {field:primarylink.employeeid
