@@ -106,12 +106,10 @@ explore: seemore_rollup_new {
 }
 explore: seemore_rollup_new_all {
   hidden: no
-  access_filter: {field:primarylink.employeeid
-    user_attribute:employee_id}
-  join: primarylink {
+  join: employee_lookup_all {
     relationship: many_to_one
     type: full_outer
-    sql_on: ${seemore_rollup_new_all.employeeid} = ${primarylink.employeeid} ;;
+    sql_on: ${seemore_rollup_new_all.employeeid} = ${employee_lookup_all.employeeid} ;;
   }
 }
 
