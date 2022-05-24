@@ -198,8 +198,26 @@ view: seemore_rollup_new_all {
     sql: ${TABLE}."WEEKDAY" ;;
   }
 
+  dimension: Terminated {
+    type: yesno
+    sql: ${termination_date} IS NOT NULL;;
+  }
+
   measure: count {
     type: count
     drill_fields: [name]
   }
+
+  measure: Terminated_Receptionist_Count{
+    type: count_distinct
+    filters: [Terminated: "Yes"]
+    sql: ${employeeid};;
+    }
+
+    measure: Total_Receptionist_Count{
+      type: count_distinct
+      sql: ${employeeid};;
+  }
+
+
 }
