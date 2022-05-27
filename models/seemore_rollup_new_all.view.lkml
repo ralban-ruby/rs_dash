@@ -203,6 +203,19 @@ view: seemore_rollup_new_all {
     sql: ${termination_date} IS NOT NULL;;
   }
 
+  dimension: Tenure_Range {
+    type: string
+    sql: case when (${tenure_days} <=15) THEN 'a- 1-15 Days'
+    WHEN (${tenure_days} >15 AND ${tenure_days} <=30) THEN 'b- 15-60 Days'
+    WHEN (${tenure_days} >30 AND ${tenure_days} <=60) THEN 'c- 30-60 Days'
+    WHEN (${tenure_days} >60 AND ${tenure_days} <=90) THEN 'd- 60-90 Days'
+    WHEN (${tenure_days} >90 AND ${tenure_days} <=120) THEN 'e- 90-120 Days'
+    WHEN (${tenure_days} >120 AND ${tenure_days} <=150) THEN 'f- 120-150 Days'
+    WHEN (${tenure_days} >150 AND ${tenure_days} <=180) THEN 'g- 150-180 Days'
+    WHEN (${tenure_days} >180 AND ${tenure_days} <=365) THEN 'h- 180-365 Days'
+    WHEN (${tenure_days} >365) THEN 'i- 365+ Days'
+    ENd ;;
+  }
   measure: count {
     type: count
     drill_fields: [name]
@@ -218,6 +231,4 @@ view: seemore_rollup_new_all {
       type: count_distinct
       sql: ${employeeid};;
   }
-
-
 }
