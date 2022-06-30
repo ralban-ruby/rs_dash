@@ -314,6 +314,18 @@ explore: attendance_occurrences {
   }
 }
 
+    explore: fact_adherence_occurrences {
+      label: "Attendance Occurrences Calabrio"
+      access_filter: {field:employee_lookup_all.employeeid
+        user_attribute:employee_id}
+      join: employee_lookup_all {
+        view_label: "Employee Info"
+        relationship: many_to_one
+        type: full_outer
+        sql_on:  ${fact_adherence_occurrences.employeeid} = ${employee_lookup_all.employeeid};;
+      }
+    }
+
 explore: recognitions_given {
   access_filter: {field:primarylink.employeeid
     user_attribute:employee_id}
