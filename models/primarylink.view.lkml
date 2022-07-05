@@ -43,7 +43,7 @@ view: primarylink {
     label: "By Tier"
     style: integer
     type: tier
-    tiers: [0,60,120]
+    tiers: [0,60,120,365]
     sql: ${Tenure};;
   }
 

@@ -26,6 +26,7 @@ view: rs_recap_longoffer_ana_data {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."DATE" ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }} ;;
   }
 
   dimension: employeeid {
